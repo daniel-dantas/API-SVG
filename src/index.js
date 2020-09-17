@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const svg = require('./database/svg')
+const svg = require('./controllers/Svg');
 
 app.get('/getSvg/:nome', svg.getSVG);
 app.get('/getViewBox/:nome',svg.getViewBox);

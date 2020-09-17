@@ -1,17 +1,17 @@
-const pool = require('./pool');
+const pool = require('../database/pool');
 
-const getSVG = (request, response) => {
+class SvgController {
+  static getSVG(request, response){
     const municipio = request.params.nome;
-  
     pool.query('SELECT ST_AsSVG(geom) FROM municipio WHERE nome ilike $1', [municipio], (error, results) => {
       if (error) {
         throw error;
       }
       response.status(200).json(results.rows);
     });
-  };
-  
-  const getViewBox = (request, response) => {
+  }
+
+  static getViewBox(request, response) {
     const municipio = request.params.nome;
   
     pool.query('SELECT getViewBox($1)', [municipio], (error, results) => {
@@ -20,6 +20,8 @@ const getSVG = (request, response) => {
       }
       response.status(200).json(results.rows);
     });
-  };
+  }
 
-module.exports = {getSVG, getViewBox};
+}
+
+module.exports = SvgController;
