@@ -7,18 +7,18 @@ class SvgController {
       if (error) {
         throw error;
       }
-      response.status(200).json(results.rows);
+      response.status(200).json(results.rows[0]);
     });
   }
 
-  static getViewBox(request, response) {
+  static getViewBox(request, response){
     const municipio = request.params.nome;
   
     pool.query('SELECT getViewBox($1)', [municipio], (error, results) => {
       if (error) {
         throw error;
       }
-      response.status(200).json(results.rows);
+      response.status(200).json(results.rows[0]);
     });
   }
 
