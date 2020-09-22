@@ -10,7 +10,7 @@ class DataInfoController {
     });
   }
 
-  static getCitys(request, response) {
+  static getCountys(request, response) {
 
     const { estado } = request.params;
 

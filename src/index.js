@@ -14,7 +14,7 @@ const DataInfoController = require('./controllers/DataInfo');
 app.get('/getSvg/:nome', svg.getSVG);
 app.get('/getViewBox/:nome',svg.getViewBox);
 app.get('/getStates', DataInfoController.getStates);
-app.get('/getCitys/:estado', DataInfoController.getCitys);
+app.get('/getCountys/:estado', DataInfoController.getCountys);
 
 app.listen(process.env.PORT, () => { 
   console.log(`Server listening on port ${process.env.PORT}`); 
